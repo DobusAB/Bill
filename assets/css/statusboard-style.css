@@ -1,0 +1,27 @@
+body {
+  padding:50px;
+  background-color: #FBFBFB;
+}
+
+.theList {
+  background-color: black;
+  display:flex;
+  flex-direction:row;
+  border-radius:3px;
+  overflow:hidden;  
+}
+
+.header {
+  width:150px;
+  height:150px;
+  background-color: #FFC100;
+}
+
+.header h2 {
+  
+}
+
+.taskList {
+  flex:1;
+  background-color: #121212;
+}
