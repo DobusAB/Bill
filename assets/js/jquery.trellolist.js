@@ -195,7 +195,7 @@ $.fn.trelloList = function( settings ) {
             // attach title
             $('<div/>', {
                 "class": "header",
-                html: "<h2>" + data.name + ": " + data.cards.length + "</h2>"
+                html: "<div class='userImage'></div><h2>" + data.name + ": " + data.cards.length + "</h2>"
             }).appendTo( $div_id );
 
             // attach container
