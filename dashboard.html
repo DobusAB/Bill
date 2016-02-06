@@ -1,0 +1,75 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <script>
+          (function(d) {
+            var config = {
+              kitId: 'nkp8xlt',
+              scriptTimeout: 3000,
+              async: true
+            },
+            h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+          })(document);
+        </script>
+    </head>
+    <body>
+        <div class="container" id="main-container">
+
+        </div> 
+
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+        <script src="https://api.trello.com/1/client.js?key=da96a907993b1e265c8150352a84f783"></script>
+        <script type="text/javascript">
+            var loadedBoards = function(boards) {
+              $.each(boards, function(index, value) {
+                
+                var member = value.username;
+                var task = value.username
+                console.log(member);
+
+                $('#main-container')
+                  .append($("<div class='new-user'><div class='user-info'><div class='user-image'></div><h2>"+ value.fullName +"</h2></div><div class='task-container'></div></div>")); 
+              });
+            };
+
+            var loadBoards = function() {
+              //Get the users boards
+              Trello.get(
+                '/boards/56b33b60ee944b8da8fb64de/members/',
+                loadedBoards,
+                function() { console.log("Failed to load boards"); }
+              );
+            };
+
+
+Trello.get('/boards/56b33b60ee944b8da8fb64de/members/albinmartinsson1/cards');
+            
+            Trello.authorize({
+              type: "popup",
+              name: "Trello dashboard",
+              scope: {
+                read: true,
+                write: true,
+                account: true},
+              expiration: "never",
+              success: loadBoards,
+              error: function() { console.log("Failed authentication"); }
+            });
+          </script>
+    </body>
+</html>
